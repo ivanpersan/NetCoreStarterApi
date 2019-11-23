@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.87
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreStarterApi", "NetCoreStarterApi\NetCoreStarterApi.csproj", "{6EC67CCF-1FFB-4CB4-A3D4-0DF8DC17F0F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreStarterApi.Logic", "NetCoreStarterApi.Logic\NetCoreStarterApi.Logic.csproj", "{16C1CDA5-CFCF-4476-9575-7C735565E5B7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6EC67CCF-1FFB-4CB4-A3D4-0DF8DC17F0F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EC67CCF-1FFB-4CB4-A3D4-0DF8DC17F0F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EC67CCF-1FFB-4CB4-A3D4-0DF8DC17F0F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EC67CCF-1FFB-4CB4-A3D4-0DF8DC17F0F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16C1CDA5-CFCF-4476-9575-7C735565E5B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16C1CDA5-CFCF-4476-9575-7C735565E5B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16C1CDA5-CFCF-4476-9575-7C735565E5B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16C1CDA5-CFCF-4476-9575-7C735565E5B7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1216C353-B204-4B13-A546-C49079D1589C}
+	EndGlobalSection
+EndGlobal
