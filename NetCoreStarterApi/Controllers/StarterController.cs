@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NetCoreStarterApi.Logic.Interfaces;
+using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
@@ -111,6 +112,62 @@ namespace NetCoreStarterApi.Controllers
                 () => { _asyncService.Wait(); });
             watch.Stop();
             return watch.ElapsedMilliseconds;
+        }
+
+        [HttpGet]
+        [Route("CheckAwaitBehaviourWithAwaitAtTheEnd")]
+        public async Task<long> CheckAwaitBehaviourWithAwaitAtTheEnd()
+        {
+            var watch = Stopwatch.StartNew();
+            var task1 = _asyncService.CallMockService();
+            var task2 = _asyncService.CallMockService();
+            var task3 = _asyncService.CallMockService();
+            MockMethod(await task1, await task2, await task3);
+            watch.Stop();
+            return watch.ElapsedMilliseconds;
+        }
+
+        [HttpGet]
+        [Route("CheckAwaitBehaviourWithAwaitAtTheBeginning")]
+        public async Task<long> CheckAwaitBehaviourWithAwaitAtTheBeginning()
+        {
+            var watch = Stopwatch.StartNew();
+            var task1 = await _asyncService.CallMockService();
+            var task2 = await _asyncService.CallMockService();
+            var task3 = await _asyncService.CallMockService();
+            MockMethod(task1, task2, task3);
+            watch.Stop();
+            return watch.ElapsedMilliseconds;
+        }
+
+        [HttpGet]
+        [Route("CheckAwaitBehaviourWithAwaitAtTheEndWithSleep")]
+        public async Task<long> CheckAwaitBehaviourWithAwaitAtTheEndWithSleep()
+        {
+            var watch = Stopwatch.StartNew();
+            var task1 = _asyncService.WaitReturnString().ConfigureAwait(false);
+            var task2 = _asyncService.WaitReturnString().ConfigureAwait(false);
+            var task3 = _asyncService.WaitReturnString().ConfigureAwait(false);
+            MockMethod(await task1, await task2, await task3);
+            watch.Stop();
+            return watch.ElapsedMilliseconds;
+        }
+
+        [HttpGet]
+        [Route("CheckAwaitBehaviourWithAwaitAtTheBeginningWithSleep")]
+        public async Task<long> CheckAwaitBehaviourWithAwaitAtTheBeginningWithSleep()
+        {
+            var watch = Stopwatch.StartNew();
+            var task1 = await _asyncService.WaitReturnString().ConfigureAwait(false);
+            var task2 = await _asyncService.WaitReturnString().ConfigureAwait(false);
+            var task3 = await _asyncService.WaitReturnString().ConfigureAwait(false);
+            MockMethod(task1, task2, task3);
+            watch.Stop();
+            return watch.ElapsedMilliseconds;
+        }
+
+        private void MockMethod(string v1, string v2, string v3)
+        {
         }
     }
 }
